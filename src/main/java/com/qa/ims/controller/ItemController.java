@@ -8,16 +8,16 @@ import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.utils.Utils;
 
 public class ItemController implements CrudController<Item> {
-	
+
 	public static final Logger LOGGER = LogManager.getLogger();
-	
+
 	private ItemDAO itemDAO;
 	private Utils utils;
 
 	public ItemController(ItemDAO itDAO, Utils utils2) {
 		super();
-		this.itemDAO=itDAO;
-		this.utils=utils2;
+		this.itemDAO = itDAO;
+		this.utils = utils2;
 	}
 
 	@Override
@@ -59,6 +59,5 @@ public class ItemController implements CrudController<Item> {
 		Long itemId = utils.getLong();
 		return itemDAO.delete(itemId);
 	}
-	
 
 }

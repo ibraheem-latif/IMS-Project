@@ -15,19 +15,19 @@ import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.utils.DBUtils;
 
 public class ItemDAO implements Dao<Item> {
-	
+
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	@Override
 	public Item modelFromResultSet(ResultSet resultSet) throws SQLException {
-		
+
 		Long itemId = resultSet.getLong("item_ID");
 		String itemName = resultSet.getString("item_name");
 		double itemPrice = resultSet.getDouble("item_price");
-		return new Item(itemId,itemName,itemPrice);
-		
+		return new Item(itemId, itemName, itemPrice);
+
 	}
-	
+
 	/**
 	 * Reads all items from the database
 	 * 
@@ -36,21 +36,21 @@ public class ItemDAO implements Dao<Item> {
 
 	@Override
 	public List<Item> readAll() {
-	try (Connection connection = DBUtils.getInstance().getConnection();
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM items");) {
-		List<Item> items = new ArrayList<>();
-		while (resultSet.next()) {
-			items.add(modelFromResultSet(resultSet));
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				Statement statement = connection.createStatement();
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM items");) {
+			List<Item> items = new ArrayList<>();
+			while (resultSet.next()) {
+				items.add(modelFromResultSet(resultSet));
+			}
+			return items;
+		} catch (SQLException e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
 		}
-		return items;
-	} catch (SQLException e) {
-		LOGGER.debug(e);
-		LOGGER.error(e.getMessage());
+		return new ArrayList<>();
 	}
-	return new ArrayList<>();
-}
-	
+
 	public Item readLatest() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
@@ -79,7 +79,7 @@ public class ItemDAO implements Dao<Item> {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Creates an item in the database
 	 * 
@@ -105,8 +105,8 @@ public class ItemDAO implements Dao<Item> {
 	/**
 	 * Updates an item in the database
 	 * 
-	 * @param t - takes in a item object, the id field will be used to
-	 *                 update that item in the database
+	 * @param t - takes in a item object, the id field will be used to update that
+	 *          item in the database
 	 * @return
 	 */
 	@Override
@@ -125,6 +125,7 @@ public class ItemDAO implements Dao<Item> {
 		}
 		return null;
 	}
+
 	/**
 	 * Deletes an item in the database
 	 * 
@@ -142,7 +143,5 @@ public class ItemDAO implements Dao<Item> {
 		}
 		return 0;
 	}
-
-
 
 }
