@@ -7,25 +7,22 @@ public class Item {
 	private Long itemId;
 	private String itemName;
 	private double itemPrice;
-	
-	public Item() {}
 
+	public Item() {
+	}
 
 	public Item(Long itemId, String itemName, double itemPrice) {
-		this.itemId=itemId;
-		this.itemName=itemName;
-		this.itemPrice=itemPrice;
-		
+		this.itemId = itemId;
+		this.itemName = itemName;
+		this.itemPrice = itemPrice;
+
 	}
-	
+
 	public Item(String itemName, double itemPrice) {
-		this.itemName=itemName;
-		this.itemPrice=itemPrice;
-		
+		this.itemName = itemName;
+		this.itemPrice = itemPrice;
+
 	}
-
-
-
 
 	public Long getItemId() {
 		return itemId;
@@ -73,11 +70,5 @@ public class Item {
 		return Objects.equals(itemId, other.itemId) && Objects.equals(itemName, other.itemName)
 				&& Double.doubleToLongBits(itemPrice) == Double.doubleToLongBits(other.itemPrice);
 	}
-
-
-
-
-	
-
 
 }
