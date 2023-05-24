@@ -69,7 +69,7 @@ As the Prerequisites have been complete access the testing feature through the s
 ### Unit Tests 
 
 Unit testing is a form of testing that involves testing smaller isolated portions of code that may be utilised logically by setting up conditions to use before testing.
-In this project, unit testing was employed for the getter/setter/toString methods of each class (customer, orders, items)
+In this√äproject, unit testing was employed for the getter/setter/toString methods of each class (customer, orders, items)
 ```
 @Test
 	public void testToString() {
@@ -110,7 +110,7 @@ Each controller is subjected to integration testing in this case (ItemController
 
 ## Versioning
 
-GitHub for versioning.
+GitHub√äfor versioning.
 
 ## Authors
 
@@ -125,7 +125,5 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 *For help in [Choosing a license](https://choosealicense.com/)*
 
-## Acknowledgments
 
-* Thank you to my trainers for the invaluable help in completing my project
 
